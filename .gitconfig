@@ -1,0 +1,24 @@
+[core]
+	autocrlf = false
+	longpaths = true
+	symlinks = true
+[credential]
+	helper = manager
+[user]
+	name = martincostello
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[remote "origin"]
+	prune = true
+[pull]
+	rebase = true
+[rebase]
+	autostash = true
+[alias]
+	sync = !git checkout main && git pull upstream main && git push origin main && git pull --prune
+	setx = "!git update-index --chmod=+x "
+[init]
+	defaultBranch = main

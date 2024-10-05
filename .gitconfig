@@ -1,24 +1,51 @@
+[advice]
+	skippedCherryPicks=false
+
+[alias]
+	chekcout=checkout
+	clone-fork=!pwsh -Command 'Clone-Fork -RepoName $1'
+	deploy=!git fetch origin main:deploy && git push origin deploy
+	for-fun=!git config --local user.email 'martin@martincostello.com' && git config --local user.name 'martincostello'
+	for-work=!git config --local user.email 'martin.costello@just-eat.com' && git config --local user.name 'martin-costello'
+	setx=!git update-index --chmod=+x
+	sync=!pwsh -Command 'Sync-With-Git-Upstream'
+	tidy=!pwsh -Command 'Remove-Git-Nondefault-Branches $1'
+
 [core]
 	autocrlf = false
+	editor = code --wait
 	longpaths = true
 	symlinks = true
+
 [credential]
 	helper = manager
-[user]
-	name = martincostello
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[remote "origin"]
-	prune = true
-[pull]
-	rebase = true
-[rebase]
-	autostash = true
-[alias]
-	sync = !git checkout main && git pull upstream main && git push origin main && git pull --prune
-	setx = "!git update-index --chmod=+x "
+
+[http]
+	sslBackend = schannel
+
 [init]
 	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote=true
+
+[rebase]
+	autostash = true
+
+[remote "origin"]
+	prune = true
+
+[submodule]
+	recurse=true
+
+[user]
+	name = martincostello

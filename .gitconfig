@@ -12,7 +12,7 @@
 	tidy=!pwsh -Command 'Remove-Git-Nondefault-Branches $1'
 
 [core]
-	autocrlf = false
+	autocrlf = true
 	editor = code --wait
 	longpaths = true
 	symlinks = true

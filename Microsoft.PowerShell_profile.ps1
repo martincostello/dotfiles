@@ -126,6 +126,6 @@ Register-ArgumentCompleter -Native -CommandName az -ScriptBlock {
 }
 
 Import-Module posh-git
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
 
-# oh-my-posh --init --shell pwsh --config ~/jandedobbeleer.omp.json | Invoke-Expression
 Invoke-Expression (&starship init powershell)

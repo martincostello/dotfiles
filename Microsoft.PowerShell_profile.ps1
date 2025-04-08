@@ -91,13 +91,7 @@ New-Alias -Name git-tidy -Value Delete-Git-Nondefault-Branches
 New-Alias -Name git-sync -Value Sync-With-Git-Upstream
 New-Alias -Name git-clone-fork -Value Sync-With-Git-Upstream
 
-# PowerShell parameter completion shim for the dotnet CLI
-Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-    param($commandName, $wordToComplete, $cursorPosition)
-    dotnet complete --position $cursorPosition $wordToComplete | ForEach-Object {
-        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-    }
-}
+dotnet completions script pwsh | Out-String | Invoke-Expression -ErrorAction SilentlyContinue
 
 function GitW {
     $repoUrl = Get-Repo-Url

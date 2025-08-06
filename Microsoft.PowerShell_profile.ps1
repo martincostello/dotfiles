@@ -87,9 +87,16 @@ function Clone-Fork () {
     git sync
 }
 
+function Fix-DotNet-Nightly-Merge-Conflicts() {
+    $baseBranch = "dotnet-vnext"
+    $targetBranch = "dotnet-nightly"
+    git checkout $baseBranch && git checkout $targetBranch && git merge --strategy=recursive --strategy-option=ours $baseBranch --no-edit && git reset $baseBranch
+}
+
 New-Alias -Name git-tidy -Value Delete-Git-Nondefault-Branches
 New-Alias -Name git-sync -Value Sync-With-Git-Upstream
 New-Alias -Name git-clone-fork -Value Sync-With-Git-Upstream
+New-Alias -Name git-dotnet-nightly -Value Fix-DotNet-Nightly-Merge-Conflicts
 
 dotnet completions script pwsh | Out-String | Invoke-Expression -ErrorAction SilentlyContinue
 

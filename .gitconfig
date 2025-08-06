@@ -5,6 +5,7 @@
 	chekcout=checkout
 	clone-fork=!pwsh -Command 'Clone-Fork -RepoName $1'
 	deploy=!git fetch origin main:deploy && git push origin deploy
+	dotnet-nightly=!pwsh -Command 'Fix-DotNet-Nightly-Merge-Conflicts'
 	for-fun=!git config --local user.email 'martin@martincostello.com' && git config --local user.name 'martincostello'
 	for-work=!git config --local user.email 'martin.costello@just-eat.com' && git config --local user.name 'martin-costello'
 	setx=!git update-index --chmod=+x

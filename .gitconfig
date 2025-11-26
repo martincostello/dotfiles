@@ -31,7 +31,8 @@
 	required = true
 
 [gpg]
-	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
+    passphrase = SECRET
+	program = C:\\Users\\marti\\git-gpg-sign.ps1
 
 [http]
 	sslBackend = schannel
@@ -58,5 +59,6 @@
 	gpgsign=true
 
 [user]
+	email = martin@martincostello.com
 	name = martincostello
 	signingkey = 67583CCCFBFA7911

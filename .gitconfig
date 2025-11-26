@@ -12,6 +12,9 @@
 	sync=!pwsh -Command 'Sync-With-Git-Upstream'
 	tidy=!pwsh -Command 'Remove-Git-Nondefault-Branches $1'
 
+[commit]
+	gpgsign=true
+
 [core]
 	autocrlf = false
 	editor = code --wait
@@ -26,6 +29,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[gpg]
+	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 
 [http]
 	sslBackend = schannel
@@ -48,6 +54,9 @@
 [submodule]
 	recurse=true
 
+[tag]
+	gpgsign=true
+
 [user]
 	name = martincostello
-
+	signingkey = 67583CCCFBFA7911

@@ -1,0 +1,8 @@
+{
+  "allowedUrls": [
+    "https://docs.github.com",
+    "https://app.codecov.io",
+    "https://api.codecov.io"
+  ],
+  "include_coauthor": false
+}
